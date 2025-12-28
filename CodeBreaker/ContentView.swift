@@ -97,10 +97,10 @@ struct ContentView: View {
             ForEach(colors.indices, id: \.self) { index in
                 RoundedRectangle(cornerRadius: 0)
                     .aspectRatio(1, contentMode: .fit)
-                    .foregroundStyle(Color.white.opacity(0.00001))
+                    .foregroundStyle(colors[index].opacity(0.00001))
                     .glassEffect(
                         .regular
-                        .tint(colors[index])
+                            .tint(colors[index].opacity(0.9))
                         .interactive(),
                         in: .rect(cornerRadius: 20))
             }
