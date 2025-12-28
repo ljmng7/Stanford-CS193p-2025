@@ -95,33 +95,14 @@ struct ContentView: View {
         HStack {
             MatchMarkers(matches: [.exact, .inexact, .nomatch, .exact]).padding(10)
             ForEach(colors.indices, id: \.self) { index in
-                RoundedRectangle(cornerRadius: 20)
+                RoundedRectangle(cornerRadius: 0)
                     .aspectRatio(1, contentMode: .fit)
-                    .foregroundStyle(
-                        LinearGradient(
-                            colors: [
-                                colors[index].opacity(0.9),
-                                colors[index].opacity(0.6)
-                            ],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(
-                                LinearGradient(
-                                    colors: [
-                                        Color.white.opacity(0.35),
-                                        Color.clear
-                                    ],
-                                    startPoint: .topLeading,
-                                    endPoint: .center
-                                )
-                            )
-                            .blendMode(.screen)
-                    }
-                    .glassEffect(in: RoundedRectangle(cornerRadius: 20))
+                    .foregroundStyle(Color.white.opacity(0.00001))
+                    .glassEffect(
+                        .regular
+                        .tint(colors[index])
+                        .interactive(),
+                        in: .rect(cornerRadius: 20))
             }
         }
     }
