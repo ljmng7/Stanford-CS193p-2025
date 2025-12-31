@@ -64,7 +64,7 @@ struct ContentView: View {
             // Secondary ambient light (cool tone)
             RadialGradient(
                 colors: [
-                    Color.blue.opacity(0.08),
+                    Color.blue.opacity(0.25),
                     Color.clear
                 ],
                 center: UnitPoint(
